@@ -1,0 +1,41 @@
+/* starting the css code for my html */
+
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.quest-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid gray;
+    width: 60%;
+}
+
+ul {
+    justify-content: flex-start;
+}
+
+.ans-li {
+    margin-bottom: 5px;
+}
+
+.answer {
+    width: 60%;
+}
