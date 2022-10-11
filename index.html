@@ -16,87 +16,58 @@
     </div>
 
     <div class="header">
-        <p><input type="button" value="View High Scores" /></p>
+        <button id="high-score">View High Scores</button>
         <p class="time"></p>
     </div>
 
     
+    <div class="start-container" data-state="visible">
+        <h2>JavaScript Coding Quiz!</h2>
+        <p>Please click start whenever you're ready to start the quiz!</p>
+        <button id="start-btn">Start</button>
+    </div>
 
-    <div class="quest-cont">
-        <div id="start" class="questions">
-            <h2>JavaScript Coding Quiz!</h2>
-            <p>Please click start whenever you're ready to start the quiz!</p>
-            <button id="start">Start</button>
-        </div>
-
-        <div id = questions-1 class="questions">
-            <h2 class="quest">How do you initialize comments in JavaScript?</h2>
-            <ul class="ans-cont">
-                <li class="ans-li"><input type="button" value="By using //"/></li>
-                <li class="ans-li"><input type="button" value="By using /*"/></li>
-                <li class="ans-li"><input type="button" value="By using <!---->"/></li>
-                <li class="ans-li"><input type="button" value="By using $"/></li>
-            </ul>
-        </div>
-
-        <div id = questions-2 class="questions">
-            <h2 class="quest">Question 2</h2>
-            <ul class="ans-cont">
-                <li>Answer 1</li>
-                <li>Answer 2</li>
-                <li>Answer 3</li>
-                <li>Answer 4</li>
-            </ul>
-        </div>
-
-        <div id = questions-3 class="questions">
-            <h2 class="quest">Question 3</h2>
-            <ul class="ans-cont">
-                <li>Answer 1</li>
-                <li>Answer 2</li>
-                <li>Answer 3</li>
-                <li>Answer 4</li>
-            </ul>
-        </div>
-
-        <div id = questions-4 class="questions">
-            <h2 class="quest">Question 4</h2>
-            <ul class="ans-cont">
-                <li>Answer 1</li>
-                <li>Answer 2</li>
-                <li>Answer 3</li>
-                <li>Answer 4</li>
-            </ul>
-        </div>
-
-        <div id = questions-5 class="questions">
-            <h2 class="quest">Question 5</h2>
-            <ul class="ans-cont">
-                <li>Answer 1</li>
-                <li>Answer 2</li>
-                <li>Answer 3</li>
-                <li>Answer 4</li>
-            </ul>
-        </div>  
-
-        <div class="answer">
-            <p id="correct">Correct!</p>
-            <p id="wrong">Wrong!</p>    
+    <div class="container hide">
+        <div id="question" class="question-container hide">
+            <h2 id="question-header">Question</h2>
+            <div class="btn-grid" id="answer-buttons">
+                <button class="btn ansbtn correctbtn">Answer 1</button>
+                <button class="btn ansbtn correctbtn">Answer 2</button>
+                <button class="btn ansbtn correctbtn">Answer 3</button>
+                <button class="btn ansbtn correctbtn">Answer 4</button>
+            </div>  
         </div>
     </div>
 
-    <div class="score">
-        <label for="initials">Please input your initials:</label>
-        <input type="text" id="initials" name="initials">
+        <div class="rightwrong hide">
+            <p class="hide" id="correct">Correct!</p>
+            <p class="hide" id="wrong">Wrong!</p>    
+        </div>
+
+    <div class="score hide">
+        <h2 id="score-head">Finished!</h2>
+        <p class="score-ann"></p>
+        <div>
+            <label for="initials">Please input your initials:</label>
+            <input type="text" id="initials" name="initials">
+            <button id="high-submit">Submit</button>
+        </div>
     </div>
 
-    <div class="timeout">
+    <div class="high-score-page hide">
+        <h2 id="high-score-head">High Scores</h2>
+        <ul id="high-score-list">
+        </ul>
+         <div id="high-score-buttons">
+            <button  id="go-back">Go Back</button>
+            <button id="clear-high">Clear High Scores</button>
+        </div>
+    </div>
+
+    <div class="timeout hide">
         <h2>Time has run out. Better luck next time!</h2>
+        <button  id="go-back-time">Go Back</button>
     </div>
-
-
-
-
 
 
     <!--Linking javascript to HTML file-->

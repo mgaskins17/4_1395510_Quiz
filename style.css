@@ -1,5 +1,8 @@
 /* starting the css code for my html */
 
+html {
+    background-color: lightgray;
+}
 
 .title {
     display: flex;
@@ -13,7 +16,15 @@
     justify-content: space-between;
 }
 
-.quest-cont {
+
+.start-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,21 +32,80 @@
     border-bottom: black;
 }
 
-.questions {
+.question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black;
+    margin-bottom: 5px;
+    width: 60%;
+}
+
+.btn-grid {
     display: flex;
     flex-direction: column;
     border-bottom: 3px solid gray;
+    align-items: center;
     width: 60%;
 }
 
-ul {
-    justify-content: flex-start;
+#answer-buttons.btn-grid {
+    width: 80%;
 }
 
-.ans-li {
-    margin-bottom: 5px;
+.ansbtn {
+    margin: 5px;
+    width: 30%;
+    background-color: lightsalmon;
 }
 
-.answer {
-    width: 60%;
+.rightwrong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:  60%;
 }
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#correct {
+    color: green;
+    font-size: 20px;
+}
+
+#wrong {
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+}
+
+.high-score-page {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#high-score-list {
+    background-color: lightpink;
+    width: 15%;
+    text-align: left;
+}
+
+.hide {
+    display: none;
+}
+
