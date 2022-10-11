@@ -185,6 +185,7 @@ highscoreBtn.addEventListener("click", function(){ // Button listener when you c
 
 clearhighBtn.addEventListener("click", function(){ // clearing local storage to clear high score list
     localStorage.clear();
+    highscores = [];
     while (document.querySelector("#high-score-list").firstChild) { // this will remove all children until none are left for the high scores list
         document.querySelector("#high-score-list").removeChild(document.querySelector("#high-score-list").firstChild);
     };
