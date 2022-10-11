@@ -76,7 +76,7 @@ function showQuestion(question) {
     })
 }
 
-function resetQuestion() {
+function resetQuestion() { // reset the question to get rid of filler answers then populate with actual answers
         confirmEl.classList.add("hide");
         correctEl.classList.add("hide");
         confirmEl.classList.add("hide");
@@ -87,11 +87,11 @@ function resetQuestion() {
 
 }
 
-function selectAnswer(e) {
+function selectAnswer(e) { // using an event to target that specific button to check it's class
     var selectedBtn = e.target;
     var correct = selectedBtn.dataset.correct
     // setStatusClass(document.body, correct)
-    if (correct == "true") { // This shows up when pressed
+    if (correct == "true") { // conditional for when questions are answered right or wrong
         console.log("Correct");
         confirmEl.classList.remove("hide");
         correctEl.classList.remove("hide");
@@ -100,9 +100,10 @@ function selectAnswer(e) {
         console.log("Wrong")
         confirmEl.classList.remove("hide");
         wrongEl.classList.remove("hide");
+        secondsLeft -= 15; // subtract time away if answered wrong
     }
     index++;
-    if (index < questions.length) {
+    if (index < questions.length) { // conditional to check whether or not the quiz is over based off index 
         setTimeout(() => { setNextQuestion(); }, 1500); //set a delay between going to the next
     } else {
         stopTimer();
@@ -110,13 +111,13 @@ function selectAnswer(e) {
     }
 } 
 
-function inputScore () {
+function inputScore () { // calculating score and removing hide class from high score list
     scoreEl.classList.remove("hide");
     scoreannEl.textContent = "Your score is " + Math.round((scoreCount/questions.length)*100) + "%";
 }
 
-var submitcount = 0;
-var highscores = [];
+var submitcount = 0; // counter for how many quizzes have been finished
+var highscores = []; // creating an array that will populate in the next btn listener
 highsubBtn.addEventListener("click", function(event) { // submitting your initials after the quiz
     event.preventDefault();
 
@@ -145,7 +146,7 @@ highsubBtn.addEventListener("click", function(event) { // submitting your initia
     localStorage.setItem("highscores",JSON.stringify(sortedscores));
 
     // Outputting high score list after sorting
-    for (let i = 0; i < highscores.length; i++) {
+    for (let i = 0; i < highscores.length; i++) { // creating a for loop which creates list item then the text for it and append to ul in html file
         var list = document.createElement("li");
         list.setAttribute("style", "list-style-type:none; margin: 0; padding: 0; width: 100%;")
         list.textContent = i+1 + ". " + sortedscores[i].initials + " - " + sortedscores[i].scores
@@ -156,12 +157,12 @@ highsubBtn.addEventListener("click", function(event) { // submitting your initia
 })
 
 function SortScores(a, b) {
-    return b.scores - a.scores // why do i need the return here?
+    return b.scores - a.scores // why do i need the return here? 
 }
 
 
 
-backBtn.addEventListener("click", resetQuiz) // Current problem, after going back when I restart the quiz my quiz wont show up
+backBtn.addEventListener("click", resetQuiz) // Back button at high score list menu - allows you to restart the quiz if time runs out or you finish the quiz
 function resetQuiz () {
     index = 0;
     scoreCount = 0;
@@ -182,14 +183,14 @@ highscoreBtn.addEventListener("click", function(){ // Button listener when you c
     stopTimer();
 })
 
-clearhighBtn.addEventListener("click", function(){
+clearhighBtn.addEventListener("click", function(){ // clearing local storage to clear high score list
     localStorage.clear();
-    while (document.querySelector("#high-score-list").firstChild) { // Before appending the other answer choices, this will remove all children until none are left
+    while (document.querySelector("#high-score-list").firstChild) { // this will remove all children until none are left for the high scores list
         document.querySelector("#high-score-list").removeChild(document.querySelector("#high-score-list").firstChild);
     };
 })
 
-const questions = [
+const questions = [ // created questions in javascript so I only have 1 button to listen for in the HTMl file - this makes it easier to index
     {
         question: "What is the correct way to make comments in JavaScript?",
         answers: [
