@@ -118,6 +118,7 @@ function inputScore () { // calculating score and removing hide class from high 
 
 var submitcount = 0; // counter for how many quizzes have been finished
 var highscores = []; // creating an array that will populate in the next btn listener
+var sortedscores // declaring globally so I can rewrite it when clearing high scores
 highsubBtn.addEventListener("click", function(event) { // submitting your initials after the quiz
     event.preventDefault();
 
@@ -141,7 +142,7 @@ highsubBtn.addEventListener("click", function(event) { // submitting your initia
     }
 
     // need to continually sort the highscores
-    var sortedscores = highscores.sort(SortScores);
+    sortedscores = highscores.sort(SortScores);
     console.log(sortedscores);
     localStorage.setItem("highscores",JSON.stringify(sortedscores));
 
